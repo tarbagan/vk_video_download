@@ -26,7 +26,7 @@ for data in vk.video.search(q=ZAPROS, sort=0, count = СNT_VIDEO, hd=1, filters=
     try:
         url = ((soup[0]['src']))
         print ("Качаем файл - %s" % name)
-        wget.download(url, FOLDER)
+        wget.download(url, patch_folder)
     except:
         print ("ошибка")
 print ("Скачено!")
