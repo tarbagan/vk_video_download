@@ -7,7 +7,7 @@ import os
 
 ZAPROS = "Цой клип" #Что ищем
 FOLDER = "h:/VK_Video_donloads/" #Куда качать
-СNT_VIDEO = "10" #Сколько роликов скачать
+СNT_VIDEO = "10" #Сколько роликов скачать, максимумм 200
 
 vk_session = vk_api.VkApi( 'YOU LOGIN VK', 'YOU PASSWORD' )
 vk_session.auth()
