@@ -5,17 +5,19 @@ import re
 import wget
 import os
 
+ZAPROS = "Цой клип" #Что ищем
+FOLDER = "h:/VK_Video_donloads/" #Куда качать
+СNT_VIDEO = "10" #Сколько роликов скачать
+
 vk_session = vk_api.VkApi( 'YOU LOGIN VK', 'YOU PASSWORD' )
 vk_session.auth()
 vk = vk_session.get_api()
 
-ZAPROS = "Цой клип" #Что ищем
+patch_folder = FOLDER+ZAPROS
+if not os.path.isdir(patch_folder):
+    os.makedirs(patch_folder)
 
-FOLDER = "h:/VK_Video_donloads/"+ZAPROS #Создаём папку из запроса
-if not os.path.isdir(FOLDER):
-    os.makedirs(FOLDER)
-
-for data in vk.video.search(q=ZAPROS, sort=0, count = 3, hd=1, filters="short")["items"]:
+for data in vk.video.search(q=ZAPROS, sort=0, count = СNT_VIDEO, hd=1, filters="short")["items"]:
     name = (re.sub( "^\s+|\n|\r|\s+$", '', data["title"]))
     #print (data["player"]) #ссылка на плеер
     player = (data["player"])
